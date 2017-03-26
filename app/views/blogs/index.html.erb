@@ -7,10 +7,6 @@
   </ul>
 </div>
 
-<a href="blogs/new">Create New Blog</a>
-
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
+<%if current_user%>
+  <a href="blogs/new">Create New Blog</a>
 <% end %>

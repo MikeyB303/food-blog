@@ -8,7 +8,16 @@ class BlogsController < ApplicationController
   end
 
   def create
-    
-    redirect_to '/'
+    blog_details = {
+      :title => params[:title],
+      :body => params[:body],
+      :user_id => current_user.id
+    }
+    new_blog = Blog.create(blog_details)
+    if new_blog.save
+      redirect_to '/'
+    else
+      redirect_to '/blogs/new'
+    end
   end
 end
