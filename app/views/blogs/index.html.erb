@@ -1,5 +1,13 @@
 <h1 id="blog-title">Glenview Food Blog</h1>
+<div id="main-content">
+  <ul id="blog-list">
+    <% @blogs.each do |blog| %>
+      <li class="blog-list-item"><h2><%= blog.title %></h2></li>
+    <% end %>
+  </ul>
+</div>
 
+<a href="blogs/new">Create New Blog</a>
 
 <%= form_tag("/search", method: "get") do %>
   <%= label_tag(:q, "Search for:") %>
