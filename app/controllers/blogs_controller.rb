@@ -8,6 +8,7 @@ class BlogsController < ApplicationController
   end
 
   def create
+    authorize
     blog_details = {
       :title => params[:title],
       :body => params[:body],
@@ -26,7 +27,11 @@ class BlogsController < ApplicationController
   end
 
   def edit
+    authorize
     @blog = Blog.find_by id: params[:id]
+    if !author?(@blog)
+      redirect_to "/blogs/#{@blog.id}"
+    end
   end
 
   def update
