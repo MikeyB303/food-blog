@@ -9,21 +9,35 @@
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <% if current_user %>
-          <li><a href="/">Home</a></li>
-          <li><a href="/users/<%=current_user.id%>"><%=current_user.first_name%></a></li>
-          <%= form_tag("/sessions", method: "delete") do %>
-          <li><%= submit_tag('Logout') %></li>
-          <% end %>
-        <% else %>  
-          <li><a href="/">Home</a></li>
-          <li><a href="/sessions/new">Login</a></li>
-          <li><a href="/users/new">New User Registration</a></li>
-        <% end %>
-      </ul>  
-    </nav>
-    <%= yield %>
+    <header role="banner" class="mar-t-5 pad-t-2 pad-b-4 pad-s-1 wrap-float bg-white">
+      <div class="max-w-700 center wrap-float">
+        <nav class="clearfix mar-b-1">
+          <ul class="no-bullets no-margin no-padding right">
+            <% if current_user %>
+              <li class="pipe-separate t-light-green left"><a href="/">Home</a></li>
+              <li class="pipe-separate t-light-green left"><a href="/users/<%=current_user.id%>"><%=current_user.first_name%></a></li>
+              <%= form_tag("/sessions", method: "delete") do %>
+              <li class="pipe-separate t-light-green left"><%= submit_tag('Logout') %></li>
+              <% end %>
+            <% else %>  
+              <li class="pipe-separate t-light-green left"><a href="/">Home</a></li>
+              <li class="pipe-separate t-light-green left"><a href="/sessions/new">Login</a></li>
+              <li class="pipe-separate t-light-green left"><a href="/users/new">New User Registration</a></li>
+            <% end %>
+          </ul>  
+        </nav>
+
+        <div class="logo-container">
+          <%= image_tag("glenview.jpg", :alt => "glenview logo", :class => 'logo center block') %>
+          <h1>Glenview Food Blog</h1>
+        </div>
+      </div>  
+    </header>
+
+    <div class="bg-dk-green pad-t-2 pad-s-1 pad-b-8 mar-b-16 c-white">
+      <div class="max-w-700 center">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

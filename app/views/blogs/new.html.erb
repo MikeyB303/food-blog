@@ -1,8 +1,8 @@
 <h1>Submit New Blog Post</h1>
 <%= form_tag("/blogs", method: "post") do %>
-  <%= label_tag(:title, "Title:") %>
-  <%= text_field_tag(:title) %>
-  <%= label_tag(:body, "Body:") %>
-  <%= text_field_tag(:body) %>
-  <%= submit_tag("Post!") %>
+  <%= label_tag(:title, "Title:", class: 'block mar-b-1') %>
+  <%= text_field_tag(:title, "", class: "block w-100 no-outline no-border pad-1 mar-b-2") %>
+  <%= label_tag(:body, "Body:", class: 'block mar-b-1') %>
+  <%= text_field_tag(:body, "", class: "block w-100 h-10 no-resize no-outline no-border no-resize pad-1 mar-b-2") %>
+  <%= submit_tag("Post!", class: "block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline") %>
 <% end %>

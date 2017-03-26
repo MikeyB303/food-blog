@@ -1,3 +1,20 @@
-<h1><%=@blog.title%></h1>
-<p><i>Written by: <a href='../users/<%=@blog.user.id%>'><%=@blog.user.full_name%></a></i></p>
-<p><%=@blog.body%></p>
+<h1><%= @blog.title %></h1>
+
+<span class="entry-date block font-3-4 c-lt-gray"><%= "Written on #{@blog.created_at}." %></span>
+<span class="entry-date block font-3-4 c-lt-gray">By: <a href='../users/<%=@blog.user.id%>'><%=@blog.user.full_name%></a></span>
+
+
+<p><%= @blog.body %></p>
+
+<ul class="no-bullets no-padding mar-t-2">
+  <li class="pipe-separate left">
+    <a href="/blogs/<%= @blog.id %>/edit" class="c-white">edit</a>
+  </li>
+
+  <li class="pipe-separate left">
+    <form method="post" action="/blogs/<%= @blog.id %>" class="inline">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete" class="no-border no-outline no-bg c-white hover-underline">
+    </form>
+  </li>
+</ul>

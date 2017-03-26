@@ -1,13 +1,15 @@
-<h1 id="blog-title">Glenview Food Blog</h1>
-<div id="main-content">
-  <ul id="blog-list">
+<main role='main'>
+  <ul class="entries-list no-bullets no-padding">
     <% @blogs.each do |blog| %>
-      <li class="blog-list-item"><h2><%= blog.title %></h2></li>
-      <p><%= blog.body %></p>
+      <li class="entry-item pad-b-4">
+        <a href="/blogs/<%= blog.id %>" class="entry-title font-2 pad-b-1-4 c-white"><%= blog.title %></a>
+        <span class="entry-date block font-3-4 c-lt-gray"><%= "Written on #{blog.created_at}." %></span>
+        <p class="entry-stub"><%= blog.body %></p>
+      </li>
     <% end %>
   </ul>
-</div>
+</main>
 
 <%if current_user%>
-  <a href="blogs/new">Create New Blog</a>
+  <a href="blogs/new" class="block button w-100 mar-t-2 mar-b-3 pad-2 round-1 text-c center">Create New Blog</a>
 <% end %>
