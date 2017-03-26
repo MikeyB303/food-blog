@@ -10,15 +10,19 @@
 
   <body>
     <nav>
-      <% if current_user %>
-        <a href="/users/<%=current_user.id%>"><%=current_user.first_name%></a>
-        <%= form_tag("/sessions", method: "delete") do %>
-        <%= submit_tag('Logout') %>
+      <ul>
+        <% if current_user %>
+          <li><a href="/">Home</a></li>
+          <li><a href="/users/<%=current_user.id%>"><%=current_user.first_name%></a></li>
+          <%= form_tag("/sessions", method: "delete") do %>
+          <li><%= submit_tag('Logout') %></li>
+          <% end %>
+        <% else %>  
+          <li><a href="/">Home</a></li>
+          <li><a href="/sessions/new">Login</a></li>
+          <li><a href="/users/new">New User Registration</a></li>
         <% end %>
-      <% else %>  
-        <a href="/sessions/new">Login</a>
-        <a href="/users/new">New User Registration</a>
-      <% end %>  
+      </ul>  
     </nav>
     <%= yield %>
   </body>
