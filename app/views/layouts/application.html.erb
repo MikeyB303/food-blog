@@ -10,8 +10,15 @@
 
   <body>
     <nav>
+    <% if current_user %>
+      <p>Welcome, <%=current_user.first_name%></p>
+      <%= form_tag("/sessions", method: "delete") do %>
+      <%= submit_tag('Logout') %>
+      <% end %>
+    <% else %>  
       <a href="/sessions/new">Login</a>
       <a href="/users/new">New User Registration</a>
+    <% end %>  
     </nav>
     <%= yield %>
   </body>

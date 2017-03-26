@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   get 'users/new' => 'users#new'
   get 'sessions/new' => 'sessions#new'
   post 'users' => 'users#create'
+  post 'sessions' => 'sessions#create'
+  delete 'sessions' => 'sessions#destroy'
 
 end
