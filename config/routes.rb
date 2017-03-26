@@ -11,5 +11,8 @@ Rails.application.routes.draw do
   delete 'sessions' => 'sessions#destroy'
   get 'users/:id' => 'users#show'
   get 'blogs/:id' => 'blogs#show'
+  get 'blogs/:id/edit' => 'blogs#edit'
+  put 'blogs/:id' => 'blogs#update'
+  delete 'blogs/:id' => 'blogs#destroy'
 
 end

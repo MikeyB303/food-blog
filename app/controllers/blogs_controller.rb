@@ -13,7 +13,7 @@ class BlogsController < ApplicationController
       :body => params[:body],
       :user_id => current_user.id
     }
-    new_blog = Blog.create(blog_details)
+    new_blog = Blog.new(blog_details)
     if new_blog.save
       redirect_to '/'
     else
@@ -23,5 +23,25 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find_by id: params[:id]
+  end
+
+  def edit
+    @blog = Blog.find_by id: params[:id]
+  end
+
+  def update
+    @blog = Blog.find_by id: params[:id]
+    blog_details = {
+      title: params[:blog]["title"],
+      body: params[:blog]["body"],
+    }
+    @blog.update_attributes(blog_details)
+    redirect_to "/blogs/#{@blog.id}"
+  end
+
+  def destroy
+    @blog = Blog.find_by id: params[:id]
+    @blog.destroy
+    redirect_to '/'
   end
 end
