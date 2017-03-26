@@ -18,7 +18,8 @@ class BlogsController < ApplicationController
     if new_blog.save
       redirect_to '/'
     else
-      redirect_to '/blogs/new'
+      @errors = new_blog.errors.full_messages
+      render '/blogs/new'
     end
   end
 

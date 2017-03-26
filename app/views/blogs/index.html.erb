@@ -1,3 +1,7 @@
+<%if current_user%>
+  <a href="blogs/new" class="block button w-100 mar-t-2 mar-b-3 pad-2 round-1 text-c center">Write about your favorite Glenview Grub!</a>
+<% end %>
+
 <main role='main'>
   <ul class="entries-list no-bullets no-padding">
     <% @blogs.each do |blog| %>
@@ -10,6 +14,3 @@
   </ul>
 </main>
 
-<%if current_user%>
-  <a href="blogs/new" class="block button w-100 mar-t-2 mar-b-3 pad-2 round-1 text-c center">Create New Blog</a>
-<% end %>

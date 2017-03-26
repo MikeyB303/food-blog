@@ -1,4 +1,11 @@
 <h1>Submit New Blog Post</h1>
+
+<%if @errors%>
+  <%@errors.each do |error|%>
+    <li><%=error%></li>
+  <%end%>
+<%end%>
+
 <%= form_tag("/blogs", method: "post") do %>
   <%= label_tag(:title, "Title:", class: 'block mar-b-1') %>
   <%= text_field_tag(:title, "", class: "block w-100 no-outline no-border pad-1 mar-b-2") %>
