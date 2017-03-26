@@ -17,4 +17,9 @@ class UsersController < ApplicationController
       redirect_to 'users/new'
     end
   end
+
+  def show
+    @user = User.find_by id: params[:id]
+    @user_blogs = @user.blogs
+  end
 end

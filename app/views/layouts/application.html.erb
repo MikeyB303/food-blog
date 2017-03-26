@@ -11,7 +11,7 @@
   <body>
     <nav>
       <% if current_user %>
-        <p>Welcome, <%=current_user.first_name%></p>
+        <a href="/users/<%=current_user.id%>"><%=current_user.first_name%></a>
         <%= form_tag("/sessions", method: "delete") do %>
         <%= submit_tag('Logout') %>
         <% end %>

@@ -3,6 +3,7 @@
   <ul id="blog-list">
     <% @blogs.each do |blog| %>
       <li class="blog-list-item"><h2><%= blog.title %></h2></li>
+      <p><%= blog.body %></p>
     <% end %>
   </ul>
 </div>
